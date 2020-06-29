@@ -1,4 +1,7 @@
 # Test development environment
+<!-- badges: start -->
+![run-tests](https://github.com/andodet/mock-dev-env/workflows/run-tests/badge.svg)
+<!-- badges: end -->
 
 Spin up a development environment wiht a populated db through `docker-compose` and
 [`Faker`](https://faker.readthedocs.io/en/master/).
