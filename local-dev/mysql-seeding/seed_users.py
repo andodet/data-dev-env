@@ -64,7 +64,7 @@ class MySqlSeeder:
             Column("birthday", TIMESTAMP),
             Column("notes", String(250)),
             Column("is_adult", Boolean, default=False),
-            extend_existing=True
+            extend_existing=True,
         )
         self.meta.create_all(self.engine)
 
@@ -86,7 +86,7 @@ class MySqlSeeder:
     def drop_user_table(self):
         if self.engine.has_table("users"):
             print("Dropping users table...")
-            t = Table('users', self.meta)
+            t = Table("users", self.meta)
             self.connection.execute(DropTable(t))
 
 

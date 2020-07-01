@@ -77,7 +77,7 @@ class MyTxSeeder:
             Column("currency_code", String(3)),
             Column("item", String(100)),
             Column("is_premium", Boolean, default=False),
-            extend_existing=True
+            extend_existing=True,
         )
         self.meta.create_all(self.engine)
 
@@ -89,12 +89,10 @@ class MyTxSeeder:
                 "order_id": faker.pyint(min_value=1, max_value=9999, step=1),
                 "user_id": faker.random.choice(uids),
                 "ts": faker.date_time(),
-                "amount": faker.pydecimal(
-                    left_digits=4, right_digits=2, min_value=1
-                ),
+                "amount": faker.pydecimal(left_digits=4, right_digits=2, min_value=1),
                 "currency_code": faker.currency_code(),
-                "item": faker.random.choice(constants['products']),
-                "is_premium": faker.boolean(chance_of_getting_true=50)
+                "item": faker.random.choice(constants["products"]),
+                "is_premium": faker.boolean(chance_of_getting_true=50),
             }
             transactions.append(transaction)
         self.connection.execute(self.Transactions.insert(), transactions)
@@ -102,10 +100,9 @@ class MyTxSeeder:
     def drop_tx_table(self):
         if self.engine.has_table("transactions"):
             print("Dropping transaction table...")
-            t = Table('transactions', self.meta)
+            t = Table("transactions", self.meta)
             self.connection.execute(DropTable(t))
 
 
 if __name__ == "__main__":
     MyTxSeeder().seed()
-
