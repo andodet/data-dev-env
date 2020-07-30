@@ -1,5 +1,4 @@
 import time
-import random
 
 from sqlalchemy import (
     engine,
@@ -9,11 +8,8 @@ from sqlalchemy import (
     Integer,
     String,
     Boolean,
-    MetaData,
-    text,
-    dialects,
+    MetaData
 )
-from sqlalchemy.dialects import mysql
 from sqlalchemy.types import TIMESTAMP
 from sqlalchemy.exc import InterfaceError
 from sqlalchemy.schema import DropTable
