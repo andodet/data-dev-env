@@ -20,4 +20,4 @@ jobs:
     - name: Seed db mock entries
       run: docker start mysql_seeding
     - name: Run tests
-      run: docker start mysql_seeding_test --attach
+      run: docker start mysql_seeding_test
