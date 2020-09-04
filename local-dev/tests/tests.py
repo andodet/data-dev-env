@@ -33,5 +33,17 @@ def test_user_table_exists(db_conn):
     assert db_conn.has_table("users") == True
 
 
+def test_users_exist(db_conn):
+    results = db_conn.execute("select * from users limit 1")
+    users = [user for user in results]
+    assert len(users) > 0, "Empty list, no users found"
+
+
 def test_tx_table_exists(db_conn):
     assert db_conn.has_table("transactions") == True
+
+
+def test_transactions_exist(db_conn):
+    results = db_conn.execute("select * from transactions limit 1")
+    transactions = [tx for tx in results]
+    assert len(transactions) > 0, "Empty list, no transactions found"
