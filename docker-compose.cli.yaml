@@ -17,12 +17,16 @@ services:
   mysql_seeding:
     container_name: mysql_seeding
     build: ./local-dev/mysql-seeding
+    volumes:
+      - ./local-dev/mysql-seeding:/mysql-seeding
     depends_on:
       - mysql  
 
   seeding_test:
     container_name: mysql_seeding_test
     build: ./local-dev/tests
+    volumes: 
+      - ./local-dev/tests:/tests
     depends_on:
       - mysql_seeding
     links:
