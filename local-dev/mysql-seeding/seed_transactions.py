@@ -51,7 +51,7 @@ class MyTxSeeder:
         self.Users = self.Base.classes.users
 
     def seed(self):
-        print("Clearng old data...")
+        print("Clearing old data...")
         self.drop_tx_table()
         print("Start seeding...")
         self.create_tx_table()
