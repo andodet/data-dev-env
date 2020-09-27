@@ -1,6 +1,12 @@
 import pytest
 
 
+def script_runs_in_container():
+    """Check if script is running within a Docker container"""
+    with open("/proc/1/cgroup", "r") as cgroup_file:
+        return "docker" in cgroup_file.read()
+
+
 @pytest.fixture
 def db_conn():
     from sqlalchemy import create_engine, engine
@@ -11,7 +17,7 @@ def db_conn():
         "drivername": "mysql+mysqlconnector",
         "username": "root",
         "password": "root",
-        "host": "mysql",
+        "host": "mysql" if script_runs_in_container() else "localhost",
         "port": "3306",
         "database": "database",
     }
