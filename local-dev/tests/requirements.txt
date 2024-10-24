@@ -1,6 +1,6 @@
 attrs==19.3.0
 more-itertools==8.4.0
-mysql-connector-python==8.0.20
+mysql-connector-python==9.1.0
 packaging==20.4
 pluggy==0.13.1
 protobuf==3.12.2
